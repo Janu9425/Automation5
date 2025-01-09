@@ -5,6 +5,8 @@ public class BrowserCommands extends Base {
 	public void browserCommands()
 	{
 		String title=driver.getTitle();
+		String url = driver.getCurrentUrl();
+		String pagesource = driver.getPageSource();
 	}
 
 
