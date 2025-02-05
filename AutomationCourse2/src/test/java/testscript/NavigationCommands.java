@@ -7,6 +7,12 @@ public class NavigationCommands extends Base {
 		driver.navigate().back();
 		driver.navigate().forward();
 		driver.navigate().refresh();
+		driver.navigate().to("https://www.vaned.com/blog/net-listing-real-estate/");
+		driver.navigate().back();
+		driver.navigate().back();
+		driver.navigate().forward();
+		driver.navigate().refresh();
+		
 	}
 
 	public static void main(String[] args) {
@@ -15,6 +21,6 @@ public class NavigationCommands extends Base {
 		navigationcommands.navigationCode();
 		navigationcommands.browserQuit();
 
-	}
+  	}
 
 }
