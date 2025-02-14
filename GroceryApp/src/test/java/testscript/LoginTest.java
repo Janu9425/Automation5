@@ -4,14 +4,15 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import utility.ExcelUtility;
 
 public class LoginTest extends Base {
-	@Test (description = " Checking HomePage is Loaded after LogIN with valid credentials")
+	@Test (description = " Checking HomePage is Loaded after LogIN with valid credentials" , groups = ("smoke"))
 	public void verifyWheatherTheUserIsAbleToNavigateToTheHomePageafterEnteringCorrectUserNameANDPassword()
 	{
 		String expectedHomePageDisplayed = "Dashboard";
-		String userName = "admin";
-		String Password = "admin";
+		String userName = ExcelUtility.getString(1, 0, "LoginPage");
+		String Password = ExcelUtility.getString(1, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUserNameOnUserNameField(userName);
 		loginpage.enterPasswordOnPasswordField(Password); 
@@ -20,12 +21,13 @@ public class LoginTest extends Base {
 		assertEquals(expectedHomePageDisplayed,actualNavigation,"HomePage is not loaded after successfull Login");
 	}
 	
-	//@Test(description = "Check the login is not working with valid username and invalid password")
+	
+	@Test(description = "Check the login is not working with valid username and invalid password" , groups = ("regression"))
 	public void verifyWheatherTheUserIsNotAbleToNavigateToTheHomePageafterEnteringCorrectUserNameANDWrongPassword()
 	{
 		
-		String userName = "admin";
-		String Password = "test";
+		String userName = ExcelUtility.getString(2, 0, "LoginPage");
+		String Password = ExcelUtility.getString(2, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUserNameOnUserNameField(userName);
 		loginpage.enterPasswordOnPasswordField(Password); 
@@ -35,11 +37,11 @@ public class LoginTest extends Base {
 		
 	}
 	
-	//@Test(description = "Check wheather the user is not able to loggedIn with Invalid Username and Valid password")
+	@Test(description = "Check wheather the user is not able to loggedIn with Invalid Username and Valid password" , groups = ("regression"))
 	public void verifyWheatherTheUserIsNotAbleToNavigateToTheHomePageafterEnteringWrongtUserNameANDCorrectPassword()
 	{
-		String userName = "Test";
-		String Password = "admin";
+		String userName = ExcelUtility.getString(3, 0, "LoginPage");
+		String Password = ExcelUtility.getString(3, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUserNameOnUserNameField(userName);
 		loginpage.enterPasswordOnPasswordField(Password); 
@@ -48,11 +50,11 @@ public class LoginTest extends Base {
 		assertTrue(invalidMessageDisplay,"User can loggedIn to the homepage with Invalid Username and Valid password");
 	}
 	
-	//@Test(description = "Check the user is not able to login in to application with Invalid Username and password")
+	@Test(description = "Check the user is not able to login in to application with Invalid Username and password")
 	public void verifyWheatherTheUserIsNotAbleToNavigateToTheHomePageafterEnteringWrongtUserNameANDWrongPassword()
 	{
-		String userName = "Test";
-		String Password = "Testadmin";
+		String userName = ExcelUtility.getString(4, 0, "LoginPage");
+		String Password = ExcelUtility.getString(4, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUserNameOnUserNameField(userName);
 		loginpage.enterPasswordOnPasswordField(Password); 
