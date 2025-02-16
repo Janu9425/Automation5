@@ -8,24 +8,22 @@ import org.openqa.selenium.support.PageFactory;
 import utility.PageUtility;
 import utility.WaitUtility;
 
-public class ManageContactPage {
-	public WebDriver driver;
+public class ManageFooterTextPage {
+public WebDriver driver;
 	
-	public ManageContactPage(WebDriver driver) {
+	public ManageFooterTextPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy (xpath = "//a[@role='button']") WebElement contactEditButton ;
+	@FindBy (xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/Footertext/edit?edit=2']") WebElement footerTextEditButton ;
 	@FindBy (xpath = "//input[@id='phone']") WebElement phoneField ;
 	@FindBy (xpath = "//input[@id='email']") WebElement emailField ;
-	@FindBy (xpath = "//label[@for='address']//following-sibling::textarea[@placeholder='Enter the Address']") WebElement addressField;
-	@FindBy (xpath = "//label[@for='address']//following-sibling::textarea[@placeholder='Enter Delivery Time']") WebElement delivaryTimeField ;
-	@FindBy (xpath = "//input[@id='del_limit']") WebElement deliveryChargeTimeField;
+	@FindBy (xpath = "//div[@class='form-group']//following-sibling::textarea[@id='content']") WebElement addressField;
 	@FindBy (xpath = "//button[@type='submit']") WebElement updateButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement successAlertDisplay;
 	
-	public void manageContactPageLoad(String Url)
+	public void manageFooterTextPageLoad(String Url)
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.navigation(driver, Url);
@@ -33,13 +31,13 @@ public class ManageContactPage {
 	
 	public void contactEditingButtonSelection()
 	{
-		contactEditButton.click();
+		footerTextEditButton.click();
 	}
-	
-	public void phoneNumberEditing(String number)
+
+	public void addressFieldEditing(String address)
 	{
-		phoneField.clear();
-		phoneField.sendKeys("" +number);
+		addressField.clear();
+		addressField.sendKeys(address);
 	}
 	
 	public void emailFieldEditing(String email)
@@ -48,16 +46,10 @@ public class ManageContactPage {
 		emailField.sendKeys(email);
 	}
 	
-	public void addressFieldEditing(String address)
+	public void phoneNumberEditing(String number)
 	{
-		addressField.clear();
-		addressField.sendKeys(address);
-	}
-	
-	public void deliveryTimeEditing(String deliveryTime)
-	{
-		delivaryTimeField.clear();
-		delivaryTimeField.sendKeys("" +deliveryTime);
+		phoneField.clear();
+		phoneField.sendKeys("" +number);
 	}
 	
 	public void pagescrollingdown()
@@ -66,13 +58,7 @@ public class ManageContactPage {
 		pageutility.completeScrollDown(driver);
 	}
 	
-	public void deliveryChargeEditing(String deliverychargeTime)
-	{
-		deliveryChargeTimeField.clear();
-		deliveryChargeTimeField.sendKeys("" +deliverychargeTime);
-	}
-	
-	public void contactUpdate()
+	public void footerTextUpdate()
 	{
 		WaitUtility waitutility = new WaitUtility();
 		waitutility.waitForElement(driver, updateButton);

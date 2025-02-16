@@ -7,10 +7,11 @@ import org.testng.annotations.Test;
 
 import pages.CategoryPage;
 import pages.LoginPage;
+import retry.Retry;
 import utility.ExcelUtility;
 
 public class CategoryTest extends Base {
-	@Test (description = "check the user can create a new category")
+	@Test (description = "check the user can create a new category" , retryAnalyzer = Retry.class)
 	public void verifyWheathertheUserCanCreateACategory()
 	{
 		String expectedAlertMessageForUserCreate = ExcelUtility.getString(1, 0, "CategoryPage");

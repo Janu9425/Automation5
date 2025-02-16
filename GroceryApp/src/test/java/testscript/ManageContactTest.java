@@ -6,10 +6,11 @@ import org.testng.annotations.Test;
 
 import pages.LoginPage;
 import pages.ManageContactPage;
+import retry.Retry;
 import utility.ExcelUtility;
 
 public class ManageContactTest extends Base {
-	@Test (description = "Check the user can edit the contact details")
+	@Test (description = "Check the user can edit the contact details" , retryAnalyzer = Retry.class)
 	public void verifytheUserIsAbleToEditTheContact()
 	{
 		String userName = ExcelUtility.getString(1, 0, "LoginPage");

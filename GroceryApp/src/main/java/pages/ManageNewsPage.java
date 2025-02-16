@@ -23,6 +23,8 @@ public WebDriver driver;
 	@FindBy(xpath = "//textarea[@id='news']") WebElement textenterFieldForNewsCreation;
 	@FindBy(xpath = "//button[@type='submit']") WebElement saveButtonForNews;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement successAlertDisplay;
+	@FindBy(xpath = "//tr[1]//a[@class=\"btn btn-sm btn btn-danger btncss\"]") WebElement deleteButton;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement deleteSuccessAlertDisplay;
 
 	
 	public void navigateToTheManageNewsPage(String url)
@@ -54,5 +56,24 @@ public WebDriver driver;
 		String messageDisplayed = successAlertDisplay.getText();
 		return messageDisplayed;
 	}
+	
+	public void newsDeleteButtonSelection()
+	{
+		deleteButton.click();
+	}
+	
+	public void newsDeleting()
+	{
+		PageUtility pageutility = new PageUtility();
+		pageutility.alertPopupAccept(driver);
+	}
+	
+	public String deleteAlertDisplay()
+	{
+		String deletemessageDisplayed = deleteSuccessAlertDisplay.getText();
+		return deletemessageDisplayed;
+	}
+	
+	
 	
 }

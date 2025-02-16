@@ -6,10 +6,11 @@ import org.testng.annotations.Test;
 
 import pages.LoginPage;
 import pages.SubCategoryPage;
+import retry.Retry;
 import utility.ExcelUtility;
 
 public class SubCategoryTest extends Base {
-	@Test(description = "check user can create subcategory")
+	@Test(description = "check user can create subcategory" , retryAnalyzer = Retry.class)
 	public void verifyWheatherUserCanCreateNewSubCategory()
 	{
 	String userName = ExcelUtility.getString(1, 0, "LoginPage");

@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-13T15:32:43 GMT-05:00" name="Suite" finished-at="2025-02-13T15:32:58 GMT-05:00" duration-ms="15041">
+  <suite started-at="2025-02-14T01:18:12 GMT-05:00" name="Suite" finished-at="2025-02-14T01:18:21 GMT-05:00" duration-ms="8059">
     <groups>
     </groups>
-    <test started-at="2025-02-13T15:32:43 GMT-05:00" name="Test" finished-at="2025-02-13T15:32:58 GMT-05:00" duration-ms="15041">
-      <class name="testscript.ManageContactTest">
-        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:testscript.ManageContactTest@1f9e9475]" started-at="2025-02-13T15:32:43 GMT-05:00" name="initialiseBrowser" finished-at="2025-02-13T15:32:48 GMT-05:00" duration-ms="5637" status="PASS">
+    <test started-at="2025-02-14T01:18:12 GMT-05:00" name="Test" finished-at="2025-02-14T01:18:21 GMT-05:00" duration-ms="8059">
+      <class name="testscript.ManageNewsTest">
+        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:testscript.ManageNewsTest@2254127a]" started-at="2025-02-14T01:18:12 GMT-05:00" name="initialiseBrowser" finished-at="2025-02-14T01:18:17 GMT-05:00" duration-ms="4059" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,11 +18,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialiseBrowser -->
-        <test-method signature="verifytheUserIsAbleToEditTheContact()[pri:0, instance:testscript.ManageContactTest@1f9e9475]" started-at="2025-02-13T15:32:48 GMT-05:00" name="verifytheUserIsAbleToEditTheContact" description="Check the user can edit the contact details" finished-at="2025-02-13T15:32:58 GMT-05:00" duration-ms="9306" status="PASS">
+        <test-method signature="verifyWheathertheUserIsAbleToDeleteTheNewsFromTheList()[pri:0, instance:testscript.ManageNewsTest@2254127a]" started-at="2025-02-14T01:18:17 GMT-05:00" name="verifyWheathertheUserIsAbleToDeleteTheNewsFromTheList" description=" Check the user is able to delete News" finished-at="2025-02-14T01:18:21 GMT-05:00" duration-ms="3953" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifytheUserIsAbleToEditTheContact -->
-      </class> <!-- testscript.ManageContactTest -->
+        </test-method> <!-- verifyWheathertheUserIsAbleToDeleteTheNewsFromTheList -->
+      </class> <!-- testscript.ManageNewsTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

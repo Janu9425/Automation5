@@ -7,11 +7,12 @@ import org.testng.annotations.Test;
 
 import pages.AdminUsersPage;
 import pages.LoginPage;
+import retry.Retry;
 import utility.ExcelUtility;
 
 public class AdminUsersTest extends Base {
 	
-	@Test(description = "Check the new admin user is created" , priority = 2)
+	@Test(description = "Check the new admin user is created" , priority = 2 , retryAnalyzer = Retry.class)
 		public void verifyWheatherNewAdminUserCanCreate()
 		{
 			String userName = ExcelUtility.getString(1, 0, "LoginPage");
@@ -34,7 +35,7 @@ public class AdminUsersTest extends Base {
 			assertEquals(expectedAlertMessageForUserCreate,actualAlertMessageForUserCreate,"User not created successfully");
 		}
 	
-	@Test(description = "Verify wheather the user can be selected" ,priority = 1)
+	@Test(description = "Verify wheather the user can be selected" ,priority = 1 , retryAnalyzer = Retry.class)
 	public void verifyWheathertheEntiredUserIsDisplayedFromList()
 	{
 		String searchUsername = ExcelUtility.getString(1, 3, "AdminUsersPage");
@@ -55,7 +56,7 @@ public class AdminUsersTest extends Base {
 		
 		
 	}
-	@Test (description = "Check new user can create with faker" , priority = 3)
+	@Test (description = "Check new user can create with faker" , priority = 3 , retryAnalyzer = Retry.class)
 	public void verifyNewAdminUserCanCreateWithFaker()
 	{
 		String userName = ExcelUtility.getString(1, 0, "LoginPage");
