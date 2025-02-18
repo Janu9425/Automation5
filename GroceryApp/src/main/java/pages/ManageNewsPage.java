@@ -27,28 +27,32 @@ public WebDriver driver;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement deleteSuccessAlertDisplay;
 
 	
-	public void navigateToTheManageNewsPage(String url)
+	public ManageNewsPage navigateToTheManageNewsPage(String url)
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.navigation(driver, url);
+		return this;
 	}
 	
-	public void newButtonClickforNewsCreation()
+	public ManageNewsPage newButtonClickforNewsCreation()
 	{
 		newsCreateButton.click();
+		return this;
 	}
 	
-	public void contentAddingForNewsCreation(String text)
+	public ManageNewsPage contentAddingForNewsCreation(String text)
 	{
 	
 		textenterFieldForNewsCreation.sendKeys(text);
+		return this;
 	}
 	
-	public void buttonClickForNewsCreation()
+	public ManageNewsPage buttonClickForNewsCreation()
 	{
 		WaitUtility waitutility = new WaitUtility();
 		waitutility.waitForClick(driver, saveButtonForNews);
 		saveButtonForNews.click();
+		return this;
 	}
 	
 	public String alertDisplay()
@@ -57,15 +61,17 @@ public WebDriver driver;
 		return messageDisplayed;
 	}
 	
-	public void newsDeleteButtonSelection()
+	public ManageNewsPage newsDeleteButtonSelection()
 	{
 		deleteButton.click();
+		return this;
 	}
 	
-	public void newsDeleting()
+	public ManageNewsPage newsDeleting()
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.alertPopupAccept(driver);
+		return this;
 	}
 	
 	public String deleteAlertDisplay()

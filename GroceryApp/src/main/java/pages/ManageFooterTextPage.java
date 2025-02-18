@@ -23,46 +23,53 @@ public WebDriver driver;
 	@FindBy (xpath = "//button[@type='submit']") WebElement updateButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement successAlertDisplay;
 	
-	public void manageFooterTextPageLoad(String Url)
+	public ManageFooterTextPage manageFooterTextPageLoad(String Url)
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.navigation(driver, Url);
+		return this;
 	}
 	
-	public void contactEditingButtonSelection()
+	public ManageFooterTextPage contactEditingButtonSelection()
 	{
 		footerTextEditButton.click();
+		return this;
 	}
 
-	public void addressFieldEditing(String address)
+	public ManageFooterTextPage addressFieldEditing(String address)
 	{
 		addressField.clear();
 		addressField.sendKeys(address);
+		return this;
 	}
 	
-	public void emailFieldEditing(String email)
+	public ManageFooterTextPage emailFieldEditing(String email)
 	{
 		emailField.clear();
 		emailField.sendKeys(email);
+		return this;
 	}
 	
-	public void phoneNumberEditing(String number)
+	public ManageFooterTextPage phoneNumberEditing(String number)
 	{
 		phoneField.clear();
 		phoneField.sendKeys("" +number);
+		return this;
 	}
 	
-	public void pagescrollingdown()
+	public ManageFooterTextPage pagescrollingdown()
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.completeScrollDown(driver);
+		return this;
 	}
 	
-	public void footerTextUpdate()
+	public ManageFooterTextPage footerTextUpdate()
 	{
 		WaitUtility waitutility = new WaitUtility();
 		waitutility.waitForElement(driver, updateButton);
 		updateButton.click();
+		return this;
 	}
 	
 	public String alertdisplay()

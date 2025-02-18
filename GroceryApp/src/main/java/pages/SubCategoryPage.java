@@ -32,33 +32,38 @@ public WebDriver driver;
 		subCategory.click();
 	}
 	
-	public void selectionfSubCategoryCreateButton()
+	public SubCategoryPage selectionfSubCategoryCreateButton()
 	{
 		subcategoryCreateButton.click();
+		return this;
 	}
 	
-	public void categorySelectedFromDropDown()
+	public SubCategoryPage categorySelectedFromDropDown()
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.selectValueFromDropDownUsingIndex(categoryField, 4);
+		return this;
 	}
 	
-	public void enteringSubcategoryName()
+	public SubCategoryPage enteringSubcategoryName()
 	{
 		RandomUtility randomutility = new RandomUtility();
 		String Subcategoryadding = randomutility.createsubCategoryName();
 		SubcategoryField.sendKeys(Subcategoryadding);
+		return this;
 	}
 	
-	public void imageuploadingForSubCategoryCreate()
+	public SubCategoryPage imageuploadingForSubCategoryCreate()
 	{
 		FileUpLoadUtility fileuploadutility = new FileUpLoadUtility();
 		fileuploadutility.FileUploadUsingSendKeys(fileChoose, Constants.TESTIMAGEFILE1);
+		return this;
 	}
 	
-	public void buttonClickForCreatingSubCategory()
+	public SubCategoryPage buttonClickForCreatingSubCategory()
 	{
 		saveButton.click();
+		return this;
 	}
 	
 	public String alertdisplay()

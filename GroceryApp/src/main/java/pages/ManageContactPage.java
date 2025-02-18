@@ -25,58 +25,67 @@ public class ManageContactPage {
 	@FindBy (xpath = "//button[@type='submit']") WebElement updateButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement successAlertDisplay;
 	
-	public void manageContactPageLoad(String Url)
+	public ManageContactPage manageContactPageLoad(String Url)
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.navigation(driver, Url);
+		return this;
 	}
 	
-	public void contactEditingButtonSelection()
+	public ManageContactPage contactEditingButtonSelection()
 	{
 		contactEditButton.click();
+		return this;
 	}
 	
-	public void phoneNumberEditing(String number)
+	public ManageContactPage phoneNumberEditing(String number)
 	{
 		phoneField.clear();
 		phoneField.sendKeys("" +number);
+		return this;
 	}
 	
-	public void emailFieldEditing(String email)
+	public ManageContactPage emailFieldEditing(String email)
 	{
 		emailField.clear();
 		emailField.sendKeys(email);
+		return this;
 	}
 	
-	public void addressFieldEditing(String address)
+	public ManageContactPage addressFieldEditing(String address)
 	{
 		addressField.clear();
 		addressField.sendKeys(address);
+		return this;
 	}
 	
-	public void deliveryTimeEditing(String deliveryTime)
+	public ManageContactPage deliveryTimeEditing(String deliveryTime)
 	{
 		delivaryTimeField.clear();
 		delivaryTimeField.sendKeys("" +deliveryTime);
+		return this;
 	}
 	
-	public void pagescrollingdown()
+	public ManageContactPage pagescrollingdown()
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.completeScrollDown(driver);
+		return this;
 	}
 	
-	public void deliveryChargeEditing(String deliverychargeTime)
+	public ManageContactPage deliveryChargeEditing(String deliverychargeTime)
 	{
 		deliveryChargeTimeField.clear();
 		deliveryChargeTimeField.sendKeys("" +deliverychargeTime);
+		return this;
 	}
 	
-	public void contactUpdate()
+	public ManageContactPage contactUpdate()
 	{
 		WaitUtility waitutility = new WaitUtility();
 		waitutility.waitForElement(driver, updateButton);
 		updateButton.click();
+		return this;
 	}
 	
 	public String alertdisplay()

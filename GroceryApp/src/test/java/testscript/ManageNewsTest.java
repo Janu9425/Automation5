@@ -19,14 +19,9 @@ public class ManageNewsTest extends Base {
 		String userName = ExcelUtility.getString(1, 0, "LoginPage");
 		String Password = ExcelUtility.getString(1, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		ManageNewsPage managenewspage = new ManageNewsPage(driver);
-		managenewspage.navigateToTheManageNewsPage(url);
-		managenewspage.newButtonClickforNewsCreation();
-		managenewspage.contentAddingForNewsCreation(text);
-		managenewspage.buttonClickForNewsCreation();
+		managenewspage.navigateToTheManageNewsPage(url).newButtonClickforNewsCreation().contentAddingForNewsCreation(text).buttonClickForNewsCreation();
 		String actualAlertMessage = managenewspage.alertDisplay();
 		assertEquals(actualAlertMessage, expectedAlertMessageForUserCreate,"News is not created and it is not displayed in the list");
 
@@ -40,13 +35,9 @@ public class ManageNewsTest extends Base {
 		String Password = ExcelUtility.getString(1, 1, "LoginPage");
 		String expectedAlertMessageForUserCreate = ExcelUtility.getString(1, 3, "ManageNewsPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		ManageNewsPage managenewspage = new ManageNewsPage(driver);
-		managenewspage.navigateToTheManageNewsPage(url);
-		managenewspage.newsDeleteButtonSelection();
-		managenewspage.newsDeleting();
+		managenewspage.navigateToTheManageNewsPage(url).newsDeleteButtonSelection().newsDeleting();
 		String actualAlertMessage = managenewspage.deleteAlertDisplay();
 		assertEquals(actualAlertMessage, expectedAlertMessageForUserCreate,"User cann't delete a news from the news list");
 		

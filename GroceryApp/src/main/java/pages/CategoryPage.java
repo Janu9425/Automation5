@@ -30,58 +30,66 @@ public class CategoryPage {
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement successAlertDisplay;
 	
 	
-	public void categoryTabSelection(String url)
+	public CategoryPage categoryTabSelection(String url)
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.navigation(driver, url);
+		return this;
 	}
 	
-	public void categoryCreateButtonselection()
+	public CategoryPage categoryCreateButtonselection()
 	{
 		newCategoryCreateButton.click();
+		return this;
 	}
 	
-	public void enterCategoryName()
+	public CategoryPage enterCategoryName()
 	{
 		RandomUtility randomutility = new RandomUtility();
 		String fakerCategoryName = randomutility.createCategoryName();
 		categoryLableName.sendKeys(fakerCategoryName);
+		return this;
 	}
 	
-	public void selectingTheGroupsForCategoryDisplay()
+	public CategoryPage selectingTheGroupsForCategoryDisplay()
 	{
 		groupSelection.click();
 		PageUtility pageutility = new PageUtility();
 		pageutility.scrollTODown(driver);
+		return this;
 	
 	}
 	
-	public void fileUploadforCategoryCreate()
+	public CategoryPage fileUploadforCategoryCreate()
 	{
 		FileUpLoadUtility fileuploadutility = new FileUpLoadUtility();
 		fileuploadutility.FileUploadUsingSendKeys(fileChoose, Constants.TESTIMAGEFILE1);
+		return this;
 		
 	}
 	
-	public void selectionofCategoryDisplayinTopMenu()
+	public CategoryPage selectionofCategoryDisplayinTopMenu()
 	{
 		WaitUtility waitutility = new WaitUtility();
 		waitutility.waitForClick(driver, selctionofTopMenu);
 		selctionofTopMenu.click();
+		return this;
 	}
 	
-	public void pagescrollingdown()
+	public CategoryPage pagescrollingdown()
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.completeScrollDown(driver);
+		return this;
 	}
 	
-	public void createdCategorySavingtoTheList()
+	public CategoryPage createdCategorySavingtoTheList()
 	{
 		
 		WaitUtility waitutility = new WaitUtility();
 		waitutility.waitForElement(driver, categorySave);
 		categorySave.click();
+		return this;
 	}
 	
 	public String alertDisplay() 

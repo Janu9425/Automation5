@@ -22,17 +22,9 @@ public class ManageFooterTextTest extends Base {
 		String number = ExcelUtility.getIntegerData(1, 3, "ManageFooterTextPage");
 		String expectedAlertMessageForUserCreate = ExcelUtility.getString(1, 4, "ManageFooterTextPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		ManageFooterTextPage managecontactpage = new ManageFooterTextPage(driver);
-		managecontactpage.manageFooterTextPageLoad(Url);
-		managecontactpage.contactEditingButtonSelection();
-		managecontactpage.addressFieldEditing(address);
-		managecontactpage.emailFieldEditing(email);
-		managecontactpage.phoneNumberEditing(number);
-		managecontactpage.pagescrollingdown();
-		managecontactpage.footerTextUpdate();
+		managecontactpage.manageFooterTextPageLoad(Url).contactEditingButtonSelection().addressFieldEditing(address).emailFieldEditing(email).phoneNumberEditing(number).pagescrollingdown().footerTextUpdate();
 		String actualAlertMessageForUserCreate= managecontactpage.alertdisplay();
 		assertEquals(expectedAlertMessageForUserCreate,actualAlertMessageForUserCreate,"User cann't able to update the Manage Footer Text");
 		

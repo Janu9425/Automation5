@@ -17,9 +17,7 @@ public class LoginTest extends Base {
 		String userName = ExcelUtility.getString(1, 0, "LoginPage");
 		String Password = ExcelUtility.getString(1, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		String actualNavigation = loginpage.homeNavigation();
 		assertEquals(expectedHomePageDisplayed,actualNavigation,"HomePage is not loaded after successfull Login");
 	}
@@ -32,9 +30,7 @@ public class LoginTest extends Base {
 		String userName = ExcelUtility.getString(2, 0, "LoginPage");
 		String Password = ExcelUtility.getString(2, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		boolean invalidMessageDisplay = loginpage.alertPresent();
 		assertTrue(invalidMessageDisplay,"User can loggedIn to the homepage with Invalid password and valid username");
 		
@@ -46,9 +42,7 @@ public class LoginTest extends Base {
 		String userName = ExcelUtility.getString(3, 0, "LoginPage");
 		String Password = ExcelUtility.getString(3, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		boolean invalidMessageDisplay = loginpage.alertPresent();
 		assertTrue(invalidMessageDisplay,"User can loggedIn to the homepage with Invalid Username and Valid password");
 	}
@@ -58,9 +52,7 @@ public class LoginTest extends Base {
 	{
 		
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		boolean invalidMessageDisplay = loginpage.alertPresent();
 		assertTrue(invalidMessageDisplay,"User can loggedIn to the homepage with Invalid Username and InValid password");
 	}

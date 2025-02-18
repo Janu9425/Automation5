@@ -19,18 +19,9 @@ public class CategoryTest extends Base {
 		String Password = ExcelUtility.getString(1, 1, "LoginPage");
 		String url = ExcelUtility.getString(1, 1, "CategoryPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		CategoryPage categorypage = new CategoryPage(driver);
-		categorypage.categoryTabSelection(url);
-		categorypage.categoryCreateButtonselection();
-		categorypage.enterCategoryName();
-		categorypage.selectingTheGroupsForCategoryDisplay();
-		categorypage.fileUploadforCategoryCreate();
-		categorypage.selectionofCategoryDisplayinTopMenu();
-		categorypage.pagescrollingdown();
-		categorypage.createdCategorySavingtoTheList();
+		categorypage.categoryTabSelection(url).categoryCreateButtonselection().enterCategoryName().selectingTheGroupsForCategoryDisplay().fileUploadforCategoryCreate().selectionofCategoryDisplayinTopMenu().pagescrollingdown().createdCategorySavingtoTheList();
 		String actualAlertMessage=categorypage.alertDisplay();
 		assertEquals(actualAlertMessage, expectedAlertMessageForUserCreate,"Category is not created and it is not displayed in the list");
 	}

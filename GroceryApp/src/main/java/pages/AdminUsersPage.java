@@ -40,46 +40,53 @@ public class AdminUsersPage {
 	}
 	
 	
-	public void newAdminUserCreateButtonSelection()
+	public AdminUsersPage newAdminUserCreateButtonSelection()
 	{
 		newAdminUserCreateButton.click();
+		return this;
 	}
 	
-	public void createNewAdminUserName(String username)
+	public AdminUsersPage createNewAdminUserName(String username)
 	{
 		newAdminUserNameField.sendKeys(username);
+		return this;
 	}
 	
-	public void createFakerUserNameForNewAdminUserCreate()
+	public AdminUsersPage createFakerUserNameForNewAdminUserCreate()
 	{
 		RandomUtility randomutility = new RandomUtility();
 		String fakerUsername =randomutility.createNewFakerUserName();
 		newAdminUserNameField.sendKeys(fakerUsername);
+		return this;
 	}
 	
-	public void createNewAdminUserPassword(String userpassword)
+	public AdminUsersPage createNewAdminUserPassword(String userpassword)
 	{
 		newAdminUserPasswordField.sendKeys("" +userpassword);
+		return this;
 	}
 	
-	public void createFakerPassWordForNewAdminCreate()
+	public AdminUsersPage createFakerPassWordForNewAdminCreate()
 	{
 		RandomUtility randomutility = new RandomUtility();
 		long fakerPassword=randomutility.createNewFakerPassword();
 		newAdminUserPasswordField.sendKeys("" +fakerPassword);
+		return this;
 	}
 	
-	public void typeSelectionFromDropDown()
+	public AdminUsersPage typeSelectionFromDropDown()
 	{
 		PageUtility pageutility = new PageUtility();
 		pageutility.selectValueFromDropDownUsingIndex(typeDropDownSelection, 1);
+		return this;
 	}
 	
-	public void newAdminUserCreation()
+	public AdminUsersPage newAdminUserCreation()
 	{
 		WaitUtility waitutility = new WaitUtility();
 		waitutility.waitForClick(driver, newAdminUserCreateSaveButton);
 		newAdminUserCreateSaveButton.click();
+		return this;
 	}
 	
 	public String alertdisplay()
@@ -93,26 +100,31 @@ public class AdminUsersPage {
 		closeAlertSuccessDisplay.click();
 	}
 	
-	public void searchButtonClick() {
+	public AdminUsersPage searchButtonClick()
+	{
 		searchButtonSelection.click();
+		return this;
 	}
 	
-	public void searchAdminUserName(String searchUsername)
+	public AdminUsersPage searchAdminUserName(String searchUsername)
 	{
 		searchAdminUserNameField.sendKeys(searchUsername);
+		return this;
 	}
 	
-	public void searchtypeSelectionFromDropDown()
+	public AdminUsersPage searchtypeSelectionFromDropDown()
 	{
 	Select select = new Select(searchTypeDropDownSelection); 
 	select.selectByIndex(1);
+	return this;
 	}
 	
-	public void searchUserCreated()
+	public AdminUsersPage searchUserCreated()
 	{
 		WaitUtility waitutility = new WaitUtility();
 		waitutility.waitForClick(driver, searchUserSelected);
 		searchUserSelected.click();
+		return this;
 	}
 	
 	public String searchedResultFromTable()

@@ -21,16 +21,10 @@ public class AdminUsersTest extends Base {
 			String expectedAlertMessageForUserCreate = ExcelUtility.getString(2, 1, "AdminUsersPage");
 			String password =ExcelUtility.getIntegerData(1, 2, "AdminUsersPage");
 			LoginPage loginpage = new LoginPage(driver);
-			loginpage.enterUserNameOnUserNameField(userName);
-			loginpage.enterPasswordOnPasswordField(Password); 
-			loginpage.clickOnTheSignInButton();
+			loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(password).clickOnTheSignInButton();
 			AdminUsersPage adminpage = new AdminUsersPage(driver);
 			adminpage.clickOnAdminUserInfoPage();
-			adminpage.newAdminUserCreateButtonSelection();
-			adminpage.createNewAdminUserName(username);
-			adminpage.createNewAdminUserPassword(password);
-			adminpage.typeSelectionFromDropDown();
-			adminpage.newAdminUserCreation();
+			adminpage.newAdminUserCreateButtonSelection().createNewAdminUserName(username).createNewAdminUserPassword(password).typeSelectionFromDropDown().newAdminUserCreation();
 			String actualAlertMessageForUserCreate=adminpage.alertdisplay();
 			assertEquals(expectedAlertMessageForUserCreate,actualAlertMessageForUserCreate,"User not created successfully");
 		}
@@ -42,15 +36,10 @@ public class AdminUsersTest extends Base {
 		String userName = ExcelUtility.getString(1, 0, "LoginPage");
 		String Password = ExcelUtility.getString(1, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		AdminUsersPage adminpage = new AdminUsersPage(driver);
 		adminpage.clickOnAdminUserInfoPage();
-		adminpage.searchButtonClick();
-		adminpage.searchAdminUserName(searchUsername);
-		adminpage.searchtypeSelectionFromDropDown();
-		adminpage.searchUserCreated();
+		adminpage.searchButtonClick().searchAdminUserName(searchUsername).searchtypeSelectionFromDropDown().searchUserCreated();
 		String actualSearchedResultFromTable=adminpage.searchedResultFromTable();
 		assertEquals(actualSearchedResultFromTable, searchUsername, "The usernames listed on the table is not according to the searched username");
 		
@@ -63,16 +52,10 @@ public class AdminUsersTest extends Base {
 		String Password = ExcelUtility.getString(1, 1, "LoginPage");
 		String expectedAlertMessageForUserCreate = ExcelUtility.getString(2, 1, "AdminUsersPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		AdminUsersPage adminpage = new AdminUsersPage(driver);
 		adminpage.clickOnAdminUserInfoPage();
-		adminpage.newAdminUserCreateButtonSelection();
-		adminpage.createFakerUserNameForNewAdminUserCreate();
-		adminpage.createFakerPassWordForNewAdminCreate();
-		adminpage.typeSelectionFromDropDown();
-		adminpage.newAdminUserCreation();
+		adminpage.newAdminUserCreateButtonSelection().createFakerUserNameForNewAdminUserCreate().createFakerPassWordForNewAdminCreate().typeSelectionFromDropDown().newAdminUserCreation();
 		String actualAlertMessageForUserCreate=adminpage.alertdisplay();
 		assertEquals(actualAlertMessageForUserCreate,expectedAlertMessageForUserCreate,"User not created successfully");
 	}

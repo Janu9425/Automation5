@@ -23,19 +23,9 @@ public class ManageContactTest extends Base {
 		String deliverychargeTime = ExcelUtility.getIntegerData(1, 5, "ManageContactPage");
 		String expectedAlertMessageForUserCreate = ExcelUtility.getString(1, 6, "ManageContactPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserNameOnUserNameField(userName);
-		loginpage.enterPasswordOnPasswordField(Password); 
-		loginpage.clickOnTheSignInButton();
+		loginpage.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(Password).clickOnTheSignInButton();
 		ManageContactPage managecontactpage = new ManageContactPage(driver);
-		managecontactpage.manageContactPageLoad(Url);
-		managecontactpage.contactEditingButtonSelection();
-		managecontactpage.phoneNumberEditing(number);
-		managecontactpage.emailFieldEditing(email);
-		managecontactpage.addressFieldEditing(address);
-		managecontactpage.deliveryTimeEditing(deliveryTime);
-		managecontactpage.pagescrollingdown();
-		managecontactpage.deliveryChargeEditing(deliverychargeTime);
-		managecontactpage.contactUpdate();
+		managecontactpage.manageContactPageLoad(Url).contactEditingButtonSelection().phoneNumberEditing(number).emailFieldEditing(email).addressFieldEditing(address).deliveryTimeEditing(deliveryTime).pagescrollingdown().deliveryChargeEditing(deliverychargeTime).contactUpdate();
 		String actualAlertMessageForUserCreate= managecontactpage.alertdisplay();
 		assertEquals(expectedAlertMessageForUserCreate,actualAlertMessageForUserCreate,"Contact not updated properly");
 		
