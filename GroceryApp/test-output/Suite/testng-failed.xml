@@ -11,6 +11,7 @@
         <methods>
           <include name="verifyWheathertheUserIsAbleToDeleteTheNewsFromTheList"/>
           <include name="initialiseBrowser"/>
+          <include name="browserQuit"/>
         </methods>
       </class> <!-- testscript.ManageNewsTest -->
     </classes>

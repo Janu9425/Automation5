@@ -33,10 +33,10 @@ public class LoginPage {
 		return this;
 	}
 	
-	public LoginPage clickOnTheSignInButton()
+	public SubCategoryPage clickOnTheSignInButton()
 	{
 		Signin.click();
-		return this;
+		return new SubCategoryPage(driver);
 	}
 	
 	public String homeNavigation()

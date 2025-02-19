@@ -27,9 +27,10 @@ public WebDriver driver;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement alertSuccessDisplay;
 	
 	
-	public void selctionOfSubCategoryPage()
+	public SubCategoryPage selctionOfSubCategoryPage()
 	{
 		subCategory.click();
+		return this;
 	}
 	
 	public SubCategoryPage selectionfSubCategoryCreateButton()
